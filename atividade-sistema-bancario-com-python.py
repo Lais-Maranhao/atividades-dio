@@ -32,16 +32,14 @@ while True:
             print(f"Não há saldo suficiente para saque. Favor inserir um valor menor ou igual a R$ {saldo:.2f}")
         elif valor > limite:
             print("Valor maior que o limite de saque. Favor inserir um valor menor ou igual a R$ 500.00")
+        elif numero_saques >= LIMITE_SAQUES:
+            print("Limite diário de saques atingido.")
         
-        
-        elif valor > 0 and valor < saldo and valor <= limite and numero_saques <= LIMITE_SAQUES:
+        elif valor > 0 and valor < saldo and valor <= limite:
             saldo -= valor
             extrato.append(f"Saque no valor de: {valor:.2f}")
             numero_saques += 1
-        
-        elif numero_saques > LIMITE_SAQUES:
-            print("Limite diário de saques atingido.")
-        
+
         else:
             print("Operação inválida. O valor informado não é válido para saque")
     
